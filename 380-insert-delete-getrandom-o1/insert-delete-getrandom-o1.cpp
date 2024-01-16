@@ -26,13 +26,13 @@ public:
     }
     
     int getRandom() {
-        vector<int>v;
-        for(auto it:s){
-            v.push_back(it);
-        }
-        int idx=rand()%v.size();
-        return v[idx];
-       //return  *(next(s.begin(), rand() % s.size()));
+        // vector<int>v;
+        // for(auto it:s){
+        //     v.push_back(it);
+        // }
+        // int idx=rand()%v.size();
+        // return v[idx];
+       return  *(next(s.begin(), rand() % s.size()));
     }
 };
 
