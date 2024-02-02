@@ -1,7 +1,8 @@
 class Solution {
 public:
-    int monkey(int ind,vector<int>&arr,int sum,int n,vector<vector<int>>&dp){
-        if(sum==0)return 0;
+   int dp[101][100001];
+    int solve(int ind,vector<int>&arr,int sum,int n){
+        if(sum==0) return 0;
         if(ind>=n){
             if(sum==0){
                 return 0;
@@ -9,20 +10,20 @@ public:
             return 1e9;
         }
         if(dp[ind][sum]!=-1) return dp[ind][sum];
-         int pick=1e9;
+        int pick=1e9;
         if(sum>=arr[ind]){
-           pick=1+monkey(ind,arr,sum-arr[ind],n,dp);
+            pick=1+solve(ind,arr,sum-arr[ind],n);
         }
-       int  nonpick=monkey(ind+1,arr,sum,n,dp);
-       return dp[ind][sum]=min(pick,nonpick);
-
+        int nonpick=solve(ind+1,arr,sum,n);
+        return dp[ind][sum]=min(pick,nonpick);
     }
     int coinChange(vector<int>& coins, int amount) {
         int ind=0;
+        memset(dp,-1,sizeof(dp));
         int n=coins.size();
-        vector<vector<int>>dp(n+1,vector<int>(amount+1,-1));
-        int ans =  monkey(ind,coins,amount,n,dp);
-        if(ans==1e9)  return -1;
+        int ans=solve(ind,coins,amount,n);
+        if(ans==1e9) return -1;
         return ans;
+
     }
 };
