@@ -9,7 +9,7 @@ public:
             }
             dq.push_back(i);
             if(dq.front()==i-k)dq.pop_front();
-            if(i>=k-1) {
+            if(i+1>=k) {
                 ans.push_back(nums[dq.front()]);
             }
         }
