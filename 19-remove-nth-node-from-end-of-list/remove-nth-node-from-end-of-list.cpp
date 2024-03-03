@@ -19,7 +19,7 @@ public:
             temp=temp->next;
         }
         int ans=c-n;
-        if(n==1 and c==1 ) return NULL;
+       // if(n==1 and c==1 ) return NULL;
         if(c==ans or c==n) return head->next;
         for(int i=1;i<ans;i++){
             temp1=temp1->next;
