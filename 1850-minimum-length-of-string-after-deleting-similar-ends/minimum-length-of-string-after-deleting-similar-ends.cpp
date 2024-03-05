@@ -13,10 +13,9 @@ public:
         }
         if(f==0) return 0;
         while(i<=j){
-            if(s[i]!=s[j]) return j-i+1;
+            if(s[i]!=s[j]) return j-i+1;;
              if(i==j) {
-                if(i!=0 && s[j]==s[i-1]) return 0;
-                return 1;
+               return 1;
             }
             while(s[i]==s[j]){
                 i++;
