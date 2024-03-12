@@ -26,7 +26,7 @@ public:
                     for(int k=i;k<=j;k++){
                         v[k]=0;
                     }
-                    break;
+                   // break;
                 }
             }
           
