@@ -12,6 +12,7 @@ class Solution {
 public:
     ListNode* removeZeroSumSublists(ListNode* head) {
         vector<int>v;
+        int f=0;
         ListNode* temp=head;
         while(temp){
             v.push_back(temp->val);
@@ -28,6 +29,7 @@ public:
                     break;
                 }
             }
+          
         }
         for(int i=0;i<v.size();i++){
             cout<<v[i]<<" ";
