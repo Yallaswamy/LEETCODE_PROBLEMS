@@ -13,25 +13,34 @@ public:
     ListNode* removeZeroSumSublists(ListNode* head) {
         vector<int>v;
         ListNode* temp=head;
-        ListNode* dummy=new ListNode(0,head);
-        ListNode* temp1=dummy;
-        map<int,ListNode*>mp;
-        mp[0]=dummy;;
-        int sum=0;
         while(temp){
-            sum+=temp->val;
-            mp[sum]=temp;
+            v.push_back(temp->val);
             temp=temp->next;
         }
-
-        sum=0;
-        while(temp1){
-            sum+=temp1->val;
-            temp1->next=mp[sum]->next;
-            temp1=temp1->next;
+        for(int i=0;i<v.size();i++){
+            int sum=0;
+            for(int j=i;j<v.size();j++){
+                sum+=v[j];
+                if(sum==0){
+                    for(int k=i;k<=j;k++){
+                        v[k]=0;
+                    }
+                    break;
+                }
+            }
+        }
+        for(int i=0;i<v.size();i++){
+            cout<<v[i]<<" ";
+        }
+        ListNode* dummy=new ListNode(0);
+        ListNode* temp1=dummy;
+        for(int i=0;i<v.size();i++){
+            if(v[i]!=0){
+                temp1->next=new ListNode(v[i]);
+                temp1=temp1->next;
+            }
         }
         return dummy->next;
-
        
     }
 };
