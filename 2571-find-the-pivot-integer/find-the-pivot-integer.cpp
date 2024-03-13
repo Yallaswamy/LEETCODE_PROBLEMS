@@ -11,7 +11,7 @@ public:
                 cout<<ele<<i<<" ";
                 i++;
             }
-            if(i+1==j+1 and ele1==ele ) return i;
+            if(i==j and ele1==ele ) return i;
             if(ele1<=ele){
                 ele1+=j;
                  cout<<ele1<<j<<" ";
