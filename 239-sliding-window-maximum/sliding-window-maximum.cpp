@@ -14,7 +14,7 @@ public:
             }
             else if(j-i+1==k){
                 v.push_back(dq.front());
-                if(nums[i]==dq.front()){
+                if(nums[i]>=dq.front()){
                     dq.pop_front();
                 }
                 i++;j++;
