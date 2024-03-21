@@ -1,15 +1,22 @@
 class Solution {
 public:
     int leastInterval(vector<char>& tasks, int n) {
-        int maxi=0, sz=tasks.size();
-        int freq[26]={0};
-        for(char c: tasks){
-            int f=++freq[c-'A'];
-            maxi=max(maxi, f);
+        map<char,int>mp;
+        int n1=tasks.size();
+        for(int i=0;i<tasks.size();i++){
+            mp[tasks[i]]++;
         }
-        int num_maxFreq=count(freq, freq+26, maxi);
-        
-        int time=(maxi-1)*(n+1)+num_maxFreq;
-        return max(time, sz);
+        int maxi=0;
+        for(auto it:mp){
+            maxi=max(maxi,it.second);
+        }
+        int c=0;
+        for(auto it:mp){
+            if(it.second==maxi){
+                c++;
+            }
+        }
+        int ans=(maxi-1)*(n+1)+c;
+        return max(ans,n1);
     }
 };
