@@ -1,24 +1,22 @@
 class Solution {
 public:
-void solve(int ind,int n,int k,vector<vector<int>>&v,vector<int>&ds){
-    if(ds.size()==k){
-        v.push_back(ds);
-        return;
+  void slove(int ind,int k,vector<int>&ds,vector<vector<int>>&ans,int n){
+        if(ds.size()==k){
+            ans.push_back(ds);
+            return ;
+        }
+        if(ind<=n){
+            ds.push_back(ind);
+            slove(ind+1,k,ds,ans,n);
+            ds.pop_back();
+            slove(ind+1,k,ds,ans,n);
+        }
     }
-    if(ind>n){
-        return;
-    }
-    ds.push_back(ind);
-    solve(ind+1,n,k,v,ds);
-    ds.pop_back();
-    solve(ind+1,n,k,v,ds);
-}
     vector<vector<int>> combine(int n, int k) {
+        vector<vector<int>>ans;
         vector<int>ds;
-        vector<vector<int>>v;
         int ind=1;
-        solve(ind,n,k,v,ds);
-        return v;
-
+        slove(1,k,ds,ans,n);
+        return ans;
     }
 };
