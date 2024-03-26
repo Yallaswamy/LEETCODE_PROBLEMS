@@ -5,7 +5,7 @@ public:
         for(int i=0;i<nums.size();i++){
             mp[nums[i]]++;
         }
-        for(int i=1;i<1e9+1;i++){
+        for(int i=1;i<1e6+1;i++){
             if(mp[i]==0){
                 return i;
             }
