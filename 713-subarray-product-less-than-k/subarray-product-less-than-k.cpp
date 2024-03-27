@@ -7,7 +7,7 @@ public:
         int j=0;
         for(int i=0;i<nums.size();i++){
             res=res*nums[i];
-            while(res>=k and j<nums.size()){
+            while(res>=k){
                 res=res/nums[j];
                 j++;
             }
