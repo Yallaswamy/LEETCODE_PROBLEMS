@@ -1,9 +1,9 @@
 class Solution {
 public:
     int maxSubarrayLength(vector<int>& nums, int k) {
-        int maxi=0,i=0,j=0,ans=0,f=0;
+        int maxi=0,j=0;
         map<int,int>mp;
-        for(i=0;i<nums.size();i++){
+        for(int i=0;i<nums.size();i++){
             mp[nums[i]]++;
             while(mp[nums[i]]>k){
                 mp[nums[j]]--;
