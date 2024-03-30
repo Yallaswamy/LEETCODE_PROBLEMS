@@ -16,7 +16,7 @@ public:
             j++;
         }
 
-         map<int,int>mp1;
+        map<int,int>mp1;
         int j1=0,i1=0,c1=0;
         while(j1<nums.size()){
             mp1[nums[j1]]++;
@@ -28,9 +28,9 @@ public:
                 i1++;
             }
             c1+=(j1-i1+1);
+            cout<<j1-i1+1<<" "<<c1<<" "; 
             j1++;
         }
-
         return c-c1;
     }
 };
