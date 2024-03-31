@@ -13,9 +13,8 @@ public:
                 else sum1-=1;
                 Bob.push_back(sum1);
         }
-        reverse(Bob.begin(),Bob.end());
         for(int i=0;i<Dan.size();i++){
-            if(Dan[i]>Bob[i]){
+            if(Dan[i]>Bob[Dan.size()-i-1]){
                 return i+1;
             }
         }
