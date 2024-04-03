@@ -1,30 +1,30 @@
 class Solution {
 public:
-     bool slove(int i,int j,vector<vector<char>>& board,string& word,int c) {
+     bool slove(int i,int j,vector<vector<char>>& board,string& word,int c,
+vector<vector<int>>&vis) {
 
-    if (i<0 || i>=board.size() || j<0 || j>=board[0].size() || board[i][j]!=word[c] ) {
+    if (i<0 || i>=board.size() || j<0 || j>=board[0].size() || board[i][j] != word[c] || vis[i][j] == 1) {
         return false;
     }
     if (word.size()-1==c) {
         return true;
     }
-    char recover=board[i][j];
-    board[i][j] = '@';
-    bool a= slove(i,j +1,board,word,c+1);
-    bool b=slove(i,j -1,board,word,c+1);
-    bool c1=slove(i+1,j,board,word,c+1) ;
-    bool d=slove(i-1,j,board,word,c+1);
-    board[i][j] = recover;
+    vis[i][j]=1;
+    bool a= slove(i,j +1,board,word,c+1,vis);
+    bool b=slove(i,j -1,board,word,c+1,vis);
+    bool c1=slove(i+1,j,board,word,c+1,vis) ;
+    bool d=slove(i-1,j,board,word,c+1,vis);
+    vis[i][j] = 0;
     return a|| b|| c1 || d;
 }
 
 
     bool exist(vector<vector<char>>& board, string word) {
         int n=board.size(),m=board[0].size();
-      //  vector<vector<int>>vis(n+1,vector<int>(m+1,0));
+        vector<vector<int>>vis(n+1,vector<int>(m+1,0));
          for (int i=0;i<n;i++) {
             for (int j=0;j<m;j++) {
-                if (slove(i,j,board,word,0)) {
+                if (board[i][j]==word[0] && slove(i,j,board,word,0,vis)) {
                     return 1;
                 }
             }
