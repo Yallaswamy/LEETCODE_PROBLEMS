@@ -2,13 +2,13 @@ class Solution {
 public:
      bool slove(int i,int j,vector<vector<char>>& board,string& word,int c,
 vector<vector<int>>&vis) {
-
+    if (word.size()==c) {
+        return true;
+    }
     if (i<0 || i>=board.size() || j<0 || j>=board[0].size() || board[i][j] != word[c] || vis[i][j] == 1) {
         return false;
     }
-    if (word.size()-1==c) {
-        return true;
-    }
+    
     vis[i][j]=1;
     bool a= slove(i,j +1,board,word,c+1,vis);
     bool b=slove(i,j -1,board,word,c+1,vis);
