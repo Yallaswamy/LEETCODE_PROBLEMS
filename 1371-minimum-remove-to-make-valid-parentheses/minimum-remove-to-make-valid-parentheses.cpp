@@ -1,16 +1,11 @@
 class Solution {
 public:
     string minRemoveToMakeValid(string s) {
-        stack<char>st;
         string str;
         int open=0,close=0;
         for(int i=0;i<s.size();i++){
-            if(s[i]=='('){
-                open++;
-            }
-            else if(s[i]==')'){
-                close++;
-            }
+            if(s[i]=='(') open++;
+            else if(s[i]==')') close++;
         }
         int op=0,co=0;
         for(int i=0;i<s.size();i++){
@@ -29,7 +24,6 @@ public:
                 close--;
             }
         }
-        cout<<op<<" "<<close;
         return str;
 
     }
