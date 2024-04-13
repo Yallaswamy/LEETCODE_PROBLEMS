@@ -5,7 +5,6 @@ public:
         int ans=0;     
         for(int i=0;i<v.size();i++){
             int maxi=1;
-        //    ans=max(ans,v[i]*maxi);
             for(int j=i-1;j>=0;j--){
                 if(v[j]>=v[i]){
                     maxi++;
@@ -42,6 +41,7 @@ public:
             }
             ans=max(ans,area(v));
         }
+        
         return ans;
     }
 };
