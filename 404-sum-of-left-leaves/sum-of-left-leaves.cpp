@@ -11,20 +11,15 @@
  */
 class Solution {
 public:
+    void inorder(TreeNode* root,int &ans){
+        if(root==NULL) return ;
+        inorder(root->left,ans);
+        if (root->left and root->left->left==NULL and root->left->right==NULL) ans+=root->left->val;
+        inorder(root->right,ans);
+    } 
     int sumOfLeftLeaves(TreeNode* root) {
         int ans=0;
-        if(root==NULL){
-            return 0;
-        }
-        if(root->left!=NULL){
-           if(root->left->left==NULL  and root->left->right==NULL){
-                ans+=root->left->val;
-           }
-           else{
-                ans+=sumOfLeftLeaves(root->left);
-           }
-        }
-        ans+=sumOfLeftLeaves(root->right);
+        inorder(root,ans);
         return ans;
     }
     
