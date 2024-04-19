@@ -1,15 +1,17 @@
 class Solution {
 public:
     void dfs(int i,int j,vector<vector<char>>& grid,vector<vector<int>>& vis,int n,int m){
-        if(i<0 or i>=n or j<0 or j>=m or vis[i][j]==1 or grid[i][j]=='0' ){
+        if(i<0 or i>=n or j<0 or j>=m or vis[i][j]==1  ){
             return ;
         }
-         vis[i][j]=1;
+        if(grid[i][j]=='1'){
+        vis[i][j]=1;
         dfs(i+1,j,grid,vis,n,m);
         dfs(i-1,j,grid,vis,n,m);
         dfs(i,j+1,grid,vis,n,m);
         dfs(i,j-1,grid,vis,n,m);
-        return ;
+        }
+      //  return ;
         
        
     }
@@ -23,7 +25,6 @@ public:
                 if(grid[i][j]=='1' and vis[i][j]==0){
                     c+=1;
                     dfs(i,j,grid,vis,n,m);
-                   
                 }
             }
         }
