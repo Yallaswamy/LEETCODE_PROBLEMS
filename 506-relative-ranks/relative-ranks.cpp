@@ -3,10 +3,10 @@ public:
     vector<string> findRelativeRanks(vector<int>& score) {
         vector<int>v(score); 
         sort(score.begin(),score.end(),greater<int>());
-        map<int,string>mp;
-        if(score.size()==1) return {"Gold Medal"};
+        map<int,string>mp;   
         vector<string>ans;
             mp[score[0]]="Gold Medal";
+            if(score.size()>1)
             mp[score[1]]="Silver Medal";
             if(score.size()>2)
             mp[score[2]]="Bronze Medal";
