@@ -10,7 +10,7 @@ public:
         int up=grid[i][j]+slove(i+1,j,grid,vis);
         int doum=grid[i][j]+slove(i-1,j,grid,vis);
         vis[i][j]=0;
-        return max(max(left,up),max(right,doum));
+        return max({left,up,right,doum});
 
     }
     int getMaximumGold(vector<vector<int>>& grid) {
