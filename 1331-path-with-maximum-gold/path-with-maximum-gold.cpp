@@ -14,14 +14,14 @@ public:
 
     }
     int getMaximumGold(vector<vector<int>>& grid) {
-        int maxi=INT_MIN;
+        int maxi=0;
         int n=grid.size();
         int m=grid[0].size();
         vector<vector<int>>vis(n,vector<int>(m,0));
         for(int i=0;i<grid.size();i++){
             for(int j=0;j<grid[0].size();j++){
-
-                maxi=max(maxi,slove(i,j,grid,vis));
+                if(grid[i][j]!=0)
+                    maxi=max(maxi,slove(i,j,grid,vis));
             }
         }
         return maxi;
