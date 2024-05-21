@@ -5,10 +5,11 @@ public:
             v.push_back(ds);
             return ;
         }
-        slove(ind+1,nums,ds,v);
         ds.push_back(nums[ind]);
         slove(ind+1,nums,ds,v);
         ds.pop_back();
+        slove(ind+1,nums,ds,v);
+        
     }
     vector<vector<int>> subsets(vector<int>& nums) {
         vector<vector<int>>v;
