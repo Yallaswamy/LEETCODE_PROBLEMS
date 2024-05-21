@@ -1,18 +1,19 @@
 class Solution {
 public:
-
+    void slove(int ind,vector<int>&nums,vector<int>&ds,vector<vector<int>>&v){
+        if(ind>=nums.size()){
+            v.push_back(ds);
+            return ;
+        }
+        slove(ind+1,nums,ds,v);
+        ds.push_back(nums[ind]);
+        slove(ind+1,nums,ds,v);
+        ds.pop_back();
+    }
     vector<vector<int>> subsets(vector<int>& nums) {
         vector<vector<int>>v;
-         int n=nums.size();
-         for(int i=0;i<(1<<n);i++){
-             vector<int>v1;
-             for(int j=0;j<n;j++){
-                 if(i&(1<<j)){
-                     v1.push_back(nums[j]);
-                 }
-             }
-             v.push_back(v1);
-         }
-         return v;
+        vector<int>ds;
+        slove(0,nums,ds,v);
+        return v;
     }
 };
