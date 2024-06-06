@@ -12,7 +12,7 @@ public:
             int num=hand[i];
             if(mp[num]){
                 for(int j=0;j<groupSize;j++){
-                    if(mp.find(num+j)==mp.end()){
+                    if(!mp[num+j]){
                         return 0;
                     }
                     else{
