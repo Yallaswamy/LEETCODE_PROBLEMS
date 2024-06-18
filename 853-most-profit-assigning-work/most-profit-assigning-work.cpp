@@ -9,6 +9,7 @@ public:
         sort(worker.begin(),worker.end());
         int k=0,sum=0,j=0;
         for(int i=0;i<worker.size();i++){
+            j=0;
             while(j<v.size() and v[j].first<=worker[i]){
                 k=max(k,v[j].second);
                 j++;
