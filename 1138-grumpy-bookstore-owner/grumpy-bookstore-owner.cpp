@@ -16,7 +16,7 @@ public:
                 maxi=max(maxi,ans1);
                 cout<<maxi<<" ";
             }
-            while((j-i+1)==minutes){
+            while((j-i+1)>=minutes){
                 if(grumpy[i]==1){
                     ans1-=customers[i];
                 }
