@@ -1,26 +1,22 @@
 class Solution {
 public:
-    vector<string> key={"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
-    void solve(int ind,string &digits,int n,vector<string>&ans,string &s){
-        if(ind==n){
-            ans.push_back(s);
+    vector<string>key{"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+   
+    void slove(int ind2,string &str,string &digits,vector<string>&ans){
+        if(ind2==digits.size()) {
+            ans.push_back(str);
             return ;
         }
-        
-        int len=digits[ind]-'0';
-        for(int i=0;i<key[len].size();i++){
-            s+=key[len][i];
-            solve(ind+1,digits,n,ans,s);
-            s.pop_back();
+        for(int i=0;i<key[digits[ind2]-'0'].size();i++){
+            str+=key[digits[ind2]-'0'][i];
+            slove(ind2+1,str,digits,ans);
+            str.pop_back();
         }
-
     }
     vector<string> letterCombinations(string digits) {
         vector<string>ans;
-        int ind=0;
-        int n=digits.size();
-        string s="";
-        solve(ind,digits,n,ans,s);
+        string s;
+        slove(0,s,digits,ans);
         if(digits=="") return {};
         return ans;
     }
