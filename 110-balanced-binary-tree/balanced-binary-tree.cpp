@@ -19,7 +19,6 @@ public:
        if(root==NULL) return 1;
        if(abs(height(root->left)-height(root->right))>1) return 0;
         return slove(root->left) && slove(root->right);
-        
     }
     bool isBalanced(TreeNode* root) {
         return slove(root);
