@@ -11,22 +11,21 @@
  */
 class Solution {
 public:
-    bool fun(TreeNode* root){
+    bool slove(TreeNode* root){
         if(root->left==NULL and root->right==NULL){
             return root->val;
         }
-        int left=fun(root->left);
-        int right=fun(root->right);
-        int data=root->val;
+        int left=slove(root->left);
+        int right=slove(root->right);
         if(root->val==2){
             return left|right;
         }
         else{
             return left&right;
         }
-
     }
     bool evaluateTree(TreeNode* root) {
-        return fun(root);
+        return slove(root);
+    
     }
 };
