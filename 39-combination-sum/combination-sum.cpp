@@ -1,24 +1,25 @@
 class Solution {
 public:
-    void slove(int ind,int sum,vector<int>&ds,vector<vector<int>>&v,vector<int>& arr){
-        if(ind>=arr.size()){
-            if(sum==0){
-                v.push_back(ds);
-                return ;
-            }
-         return ;
+    void slove(int i,int tar,vector<vector<int>>&ans,vector<int>&ds,vector<int>&arr,int &sum){
+        if(sum==tar){
+            ans.push_back(ds);
+            return ;
         }
-        if(sum-arr[ind]>=0){
-            ds.push_back(arr[ind]);
-            slove(ind,sum-arr[ind],ds,v,arr);
-             ds.pop_back();
+        if(i>arr.size()-1 or tar>sum) return ;
+        if(tar+arr[i]<=sum){
+            ds.push_back(arr[i]);
+            slove(i,tar+arr[i],ans,ds,arr,sum);
+            ds.pop_back();
         }
-        slove(ind+1,sum,ds,v,arr);
+        slove(i+1,tar,ans,ds,arr,sum);
+        
+
     }
-    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        vector<vector<int>>v;
+    vector<vector<int>> combinationSum(vector<int>& c, int t) {
+        vector<vector<int>>ans;
         vector<int>ds;
-        slove(0,target,ds,v,candidates);
-        return v;
+        int n=c.size();
+        slove(0,0,ans,ds,c,t);
+        return ans;
     }
 };
