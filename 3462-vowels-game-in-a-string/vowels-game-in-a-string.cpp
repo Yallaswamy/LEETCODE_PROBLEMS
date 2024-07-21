@@ -8,8 +8,7 @@ public:
             }
         }
         if(c==0) return 0;
-        if(c%2==0 and s.size()==c) return 1;
-        if(c%2==0 and s.size()>c) return 1;
+        if(c%2==0 and s.size()>=c) return 1;
         if(c%2!=0) return 1;
         else return 0; 
     }
