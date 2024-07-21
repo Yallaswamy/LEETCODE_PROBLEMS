@@ -1,16 +1,10 @@
 class Solution {
 public:
     int maxOperations(string s) {
-        int one=0,end=0,start=0;
-        for(int i=0;i<s.size();i++){
-            if(s[i]=='1'){
-                start=i;
-                break;
-            }
-        }
+        int one=0;
         vector<int>v;
         int f=0;
-        for(int i=start;i<s.size();i++){
+        for(int i=0;i<s.size();i++){
             if(s[i]=='1'){
                 one+=1;
                 f=1;
