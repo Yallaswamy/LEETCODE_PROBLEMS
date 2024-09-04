@@ -13,8 +13,7 @@ public:
                 dir=(dir+1)%4;
             }
             else if(commands[i]==-2){
-                if(dir==0) dir=3;
-                else dir-=1;
+               dir=(dir+3)%4;
             }
             else{
                 for(int j=1;j<=commands[i];j++){
