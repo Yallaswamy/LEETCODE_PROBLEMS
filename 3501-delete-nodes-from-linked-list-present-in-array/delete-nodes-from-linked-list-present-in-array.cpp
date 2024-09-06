@@ -15,21 +15,21 @@ public:
         for(int i=0;i<nums.size();i++){
             mp[nums[i]]++;
         }
-        ListNode* temp=head;
-        ListNode* temp1=new ListNode(0); 
-        ListNode* temp2=temp1;
-        while(temp){
-            if(mp.find(temp->val)!=mp.end()){
-                temp=temp->next;
+        while(head and mp.find(head->val)!=mp.end()){
+            head=head->next;
+        }
+        ListNode* newHead=head;
+        ListNode* prev=NULL;
+        while(newHead){
+            if(mp.find(newHead->val)!=mp.end()){
+                prev->next=newHead->next;
             }
             else{
-                temp1->next=new ListNode(temp->val);
-                temp1=temp1->next;
-                temp=temp->next;
-                
+                prev=newHead;
             }
+            newHead=newHead->next;
         }
-        return temp2->next;
+        return head;
 
     }
 };
