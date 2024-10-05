@@ -11,7 +11,7 @@ public:
         int j=0,i=0;
         while(j<m){
             mp1[s2[j++]]++;
-            if(j-i==n){
+            while(j-i==n){
                 if(mp==mp1) return 1;
                 mp1[s2[i]]--;
                 if(mp1[s2[i]]==0) mp1.erase(s2[i]);
