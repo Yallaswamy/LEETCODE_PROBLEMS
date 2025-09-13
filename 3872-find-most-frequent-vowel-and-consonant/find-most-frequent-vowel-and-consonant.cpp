@@ -2,16 +2,14 @@ class Solution {
 public:
     int maxFreqSum(string s) {
         map<char,int>mp;
+        int vmaxi=0,cmaxi=0;
         for(int i=0;i<s.size();i++){
             mp[s[i]]++;
-        }
-        int vmaxi=0,cmaxi=0;
-        for(auto it:mp){
-            if(it.first=='a' || it.first=='e' || it.first=='i' || it.first=='o'  || it.first=='u'  ){
-                vmaxi=max(vmaxi,it.second);
+            if(s[i]=='a' || s[i]=='e' || s[i]=='i' || s[i]=='o'  || s[i]=='u'  ){
+                vmaxi=max(vmaxi,mp[s[i]]);
             }
             else{
-                cmaxi=max(cmaxi,it.second);
+                cmaxi=max(cmaxi,mp[s[i]]);
             }
         }
         return cmaxi+vmaxi;
